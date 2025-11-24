@@ -14,8 +14,8 @@
     "homebridge-plugin"
   ],
   "engines": {
-    "homebridge": ">=0.4.45",
-    "node": ">=12.0.0"
+    "homebridge": "^1.6.0 || ^2.0.0-beta.0 || ^2.0.0",
+    "node": "^18.20.4 || ^20.15.1 || ^22.12.0"
   },
   "author": "elfive@elfive.cn",
   "license": "Apache-2.0",
@@ -32,9 +32,5 @@
   "bugs": {
     "url": "https://github.com/elfive/homebridge-petkit-feeder-mini/issues"
   },
-  "homepage": "https://github.com/elfive/homebridge-petkit-feeder-mini#readme",
-  "funding": {
-    "type": "paypal",
-    "url": "https://paypal.me/iamelfive"
-  }
+  "homepage": "https://github.com/elfive/homebridge-petkit-feeder-mini#readme"
 }
