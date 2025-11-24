@@ -384,7 +384,7 @@ class petkit_feeder_plugin {
                     return false;
                 }
             }
-
+            Service.setPrimaryService(drop_meal_service);
             drop_meal_service.getCharacteristic(Characteristic.On)
                 .on('get', callback => callback(null, 0))
                 .on('set', this.hb_dropMeal_set.bind(this, petkitDevice));
@@ -521,7 +521,7 @@ class petkit_feeder_plugin {
             let battery_status_service = accessory.getService(service_name);
             if (!battery_status_service) {
                 // service not exist, create service
-                battery_status_service = accessory.addService(Service.BatteryService, service_name, service_name);
+                battery_status_service = accessory.addService(Service.Battery, service_name, service_name);
                 if (!battery_status_service) {
                     this.log.error('petkit device service create failed: ' + service_name);
                     return false;
@@ -1325,6 +1325,7 @@ class petkit_feeder_plugin {
 
 module.exports = function (homebridge) {
     PlatformAccessory = homebridge.platformAccessory;
+    Categories = homebridge.hap.Accessory.Categories;
     Accessory = homebridge.hap.Accessory;
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
