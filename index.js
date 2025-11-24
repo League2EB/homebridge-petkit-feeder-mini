@@ -1168,7 +1168,7 @@ class petkit_feeder_plugin {
                     const startOfToday = new Date(new Date().toLocaleDateString()).getTime()
                     const currentTimeStamp = Date.parse(new Date());
                     timeOfStatus = currentTimeStamp / 1000 - startOfToday / 1000
-                    timeOfStatus + 600
+                    timeOfStatus += 600;
                     this.log.info('this is battery mode , so .. delay to feed' + timeOfStatus)
                 } else {
                     this.log.info('this is not battery mode')
