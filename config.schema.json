@@ -11,11 +11,36 @@
       "type": "integer",
       "default": 2,
       "oneOf": [
-        { "title": "Debug", "enum": [1] },
-        { "title": "Info", "enum": [2] },
-        { "title": "Warn", "enum": [3] },
-        { "title": "Error", "enum": [4] },
-        { "title": "None", "enum": [9] }
+        {
+          "title": "Debug",
+          "enum": [
+            1
+          ]
+        },
+        {
+          "title": "Info",
+          "enum": [
+            2
+          ]
+        },
+        {
+          "title": "Warn",
+          "enum": [
+            3
+          ]
+        },
+        {
+          "title": "Error",
+          "enum": [
+            4
+          ]
+        },
+        {
+          "title": "None",
+          "enum": [
+            9
+          ]
+        }
       ]
     },
     "devices": {
@@ -32,21 +57,52 @@
             "default": "cn",
             "placeholder": "China mainland",
             "oneOf": [
-              { "title": "China mainland", "enum": ["cn"] },
-              { "title": "Asia", "enum": ["asia"] },
-              { "title": "North America", "enum": ["north_america"] }
+              {
+                "title": "China mainland",
+                "enum": [
+                  "cn"
+                ]
+              },
+              {
+                "title": "Asia",
+                "enum": [
+                  "asia"
+                ]
+              },
+              {
+                "title": "North America",
+                "enum": [
+                  "north_america"
+                ]
+              }
             ]
           },
           "model": {
             "title": "Petkit feeder model",
-            "description": "• for Petkit Feeder Element users, select 'Petkit Feeder Element'.<br/>• for Petkit Feeder Mini users select 'Petkit Feeder Mini'",
+            "description": "• for Petkit Feeder Element users, select 'Petkit Feeder Element'.<br/>• for Petkit Feeder Mini users select 'Petkit Feeder Mini'<br/>• for Petkit D4 (Solo, etc.) users select 'Petkit D4'",
             "required": true,
             "type": "string",
             "default": "FeederMini",
             "placeholder": "Petkit Feeder Mini",
             "oneOf": [
-                { "title": "Petkit Feeder Element", "enum": ["Feeder"] },
-                { "title": "Petkit Feeder Mini", "enum": ["FeederMini"] }
+              {
+                "title": "Petkit Feeder Element",
+                "enum": [
+                  "Feeder"
+                ]
+              },
+              {
+                "title": "Petkit Feeder Mini",
+                "enum": [
+                  "FeederMini"
+                ]
+              },
+              {
+                "title": "Petkit D4 (Solo, etc.)",
+                "enum": [
+                  "D4"
+                ]
+              }
             ]
           },
           "deviceId": {
@@ -254,7 +310,9 @@
       "expandable": true,
       "expanded": true,
       "title": "Platform settings",
-      "items": ["log_level"]
+      "items": [
+        "log_level"
+      ]
     },
     {
       "key": "devices",
