@@ -1,6 +1,6 @@
 'use strict';
 
-let PlatformAccessory, Accessory, Service, Characteristic, UUIDGen;
+let PlatformAccessory, Categories, Accessory, Service, Characteristic, UUIDGen;
 
 const format = require('string-format');
 const axios = require('axios');
