@@ -423,7 +423,7 @@ class petkit_feeder_plugin {
                     return false;
                 }
             }
-            Service.setPrimaryService(drop_meal_service);
+            // drop_meal_service.setPrimaryService(true);
             drop_meal_service.getCharacteristic(Characteristic.On)
                 .on('get', callback => callback(null, 0))
                 .on('set', this.hb_dropMeal_set.bind(this, petkitDevice));
