@@ -124,39 +124,39 @@ const globalVariables = Object.freeze({
         'D4': {
             'cn': {
                 'owndevices': 'https://api.petkit.cn/6/discovery/device_roster_v2',
-                'deviceState': 'https://api.petkit.cn/6/d4/devicestate?id={}',
-                'deviceDetailInfo': 'https://api.petkit.cn/6/d4/device_detail?id={}',
-                'saveDailyFeed': 'https://api.petkit.cn/6/d4/save_dailyfeed?deviceId={}&day={}&time={}&amount={}',
-                'removeDailyFeed': 'https://api.petkit.cn/6/d4/remove_dailyfeed?deviceId={}&day={}&id=d{}',
-                'dailyfeeds': 'https://api.petkit.cn/6/d4/dailyfeeds?deviceId={}&days={}',
-                'restoreDailyFeeds': 'https://api.petkit.cn/6/d4/restore_dailyfeed?deviceId={}&day={}&id=s{}',
-                'disableDailyFeeds': 'https://api.petkit.cn/6/d4/remove_dailyfeed?deviceId={}&day={}&id=s{}',
-                'resetDesiccant': 'https://api.petkit.cn/6/d4/desiccant_reset?deviceId={}',
-                'updateSettings': 'https://api.petkit.cn/6/d4/update?id={}&kv={}',
+                'deviceState': 'https://api.petkit.cn/6/d4/devicestate',
+                'deviceDetailInfo': 'https://api.petkit.cn/6/d4/device_detail',
+                'saveDailyFeed': 'https://api.petkit.cn/6/d4/save_dailyfeed',
+                'removeDailyFeed': 'https://api.petkit.cn/6/d4/remove_dailyfeed',
+                'dailyfeeds': 'https://api.petkit.cn/6/d4/dailyfeeds',
+                'restoreDailyFeeds': 'https://api.petkit.cn/6/d4/restore_dailyfeed',
+                'disableDailyFeeds': 'https://api.petkit.cn/6/d4/remove_dailyfeed',
+                'resetDesiccant': 'https://api.petkit.cn/6/d4/desiccant_reset',
+                'updateSettings': 'https://api.petkit.cn/6/d4/update',
             },
             'asia':{
                 'owndevices': 'https://api.petktasia.com/latest/discovery/device_roster_v2',
-                'deviceState': 'https://api.petktasia.com/latest/d4/devicestate?id={}',
-                'deviceDetailInfo': 'https://api.petktasia.com/latest/d4/device_detail?id={}',
-                'saveDailyFeed': 'https://api.petktasia.com/latest/d4/save_dailyfeed?deviceId={}&day={}&time={}&amount={}',
-                'removeDailyFeed': 'https://api.petktasia.com/latest/d4/remove_dailyfeed?deviceId={}&day={}&id=d{}',
-                'dailyfeeds': 'https://api.petktasia.com/latest/d4/dailyfeeds?deviceId={}&days={}',
-                'restoreDailyFeeds': 'https://api.petktasia.com/latest/d4/restore_dailyfeed?deviceId={}&day={}&id=s{}',
-                'disableDailyFeeds': 'https://api.petktasia.com/latest/d4/remove_dailyfeed?deviceId={}&day={}&id=s{}',
-                'resetDesiccant': 'https://api.petktasia.com/latest/d4/desiccant_reset?deviceId={}',
-                'updateSettings': 'https://api.petktasia.com/latest/d4/update?id={}&kv={}',
+                'deviceState': 'https://api.petktasia.com/latest/d4/devicestate',
+                'deviceDetailInfo': 'https://api.petktasia.com/latest/d4/device_detail',
+                'saveDailyFeed': 'https://api.petktasia.com/latest/d4/save_dailyfeed',
+                'removeDailyFeed': 'https://api.petktasia.com/latest/d4/remove_dailyfeed',
+                'dailyfeeds': 'https://api.petktasia.com/latest/d4/dailyfeeds',
+                'restoreDailyFeeds': 'https://api.petktasia.com/latest/d4/restore_dailyfeed',
+                'disableDailyFeeds': 'https://api.petktasia.com/latest/d4/remove_dailyfeed',
+                'resetDesiccant': 'https://api.petktasia.com/latest/d4/desiccant_reset',
+                'updateSettings': 'https://api.petktasia.com/latest/d4/update',
             },
             'north_america':{
                 'owndevices': 'https://api.petkt.com/latest/discovery/device_roster_v2',
-                'deviceState': 'https://api.petkt.com/latest/d4/devicestate?id={}',
-                'deviceDetailInfo': 'https://api.petkt.com/latest/d4/device_detail?id={}',
-                'saveDailyFeed': 'https://api.petkt.com/latest/d4/save_dailyfeed?deviceId={}&day={}&time={}&amount={}',
-                'removeDailyFeed': 'https://api.petkt.com/latest/d4/remove_dailyfeed?deviceId={}&day={}&id=d{}',
-                'dailyfeeds': 'https://api.petkt.com/latest/d4/dailyfeeds?deviceId={}&days={}',
-                'restoreDailyFeeds': 'https://api.petkt.com/latest/d4/restore_dailyfeed?deviceId={}&day={}&id=s{}',
-                'disableDailyFeeds': 'https://api.petkt.com/latest/d4/remove_dailyfeed?deviceId={}&day={}&id=s{}',
-                'resetDesiccant': 'https://api.petkt.com/latest/d4/desiccant_reset?deviceId={}',
-                'updateSettings': 'https://api.petkt.com/latest/d4/update?id={}&kv={}',
+                'deviceState': 'https://api.petkt.com/latest/d4/devicestate',
+                'deviceDetailInfo': 'https://api.petkt.com/latest/d4/device_detail',
+                'saveDailyFeed': 'https://api.petkt.com/latest/d4/save_dailyfeed',
+                'removeDailyFeed': 'https://api.petkt.com/latest/d4/remove_dailyfeed',
+                'dailyfeeds': 'https://api.petkt.com/latest/d4/dailyfeeds',
+                'restoreDailyFeeds': 'https://api.petkt.com/latest/d4/restore_dailyfeed',
+                'disableDailyFeeds': 'https://api.petkt.com/latest/d4/remove_dailyfeed',
+                'resetDesiccant': 'https://api.petkt.com/latest/d4/desiccant_reset',
+                'updateSettings': 'https://api.petkt.com/latest/d4/update',
             }
         }
     },
@@ -617,13 +617,27 @@ class petkit_feeder_plugin {
     initializeAccessory(config) {
         this.log.info('initializing Petkit Feeder device.');
 
+        const user_deviceId = config.get('deviceId');
+        const model = config.get('model');
+
+        // D4 with deviceId: skip device discovery (API v2 requires different auth)
+        if (model === 'D4' && user_deviceId) {
+            this.log.info(format('D4 device with deviceId {} configured, skipping device discovery.', user_deviceId));
+            const validDevice = {
+                id: user_deviceId,
+                name: config.get('name') || 'Petkit D4',
+                type: 'D4'
+            };
+            this.setupDevice(config, validDevice);
+            return;
+        }
+
         // get deviceId from server
         let validDevice = undefined;
         this.log.debug('request device info from Petkit server.');
         this.http_getOwnDevice(config)
             .then(owned_device_raw => {
                 if (owned_device_raw) {
-                    const user_deviceId = config.get('deviceId');
                     const owned_devices = this.praseGetOwnedDevice(owned_device_raw);
                     if (owned_devices.length === 0) {
                         this.log.error(format('sorry that this plugin only works with these device type:{}.', JSON.stringify(globalVariables.support_device_type)));
@@ -662,65 +676,69 @@ class petkit_feeder_plugin {
                     this.log.error('initialize Petkit Feeder failed: could not find supported device.');
                     return;
                 }
-                config.set('deviceId', validDevice.id);
-                config.set('name', validDevice.name);
-                config.set('model', validDevice.type);
-
-                // uuid must be generated from a unique but not changing data source,
-                // name should not be used in the most cases. But works in this specific example.
-                const uuid = UUIDGen.generate(validDevice.name);
-                let petkitDevice = this.accessories.get(uuid);
-                if (!petkitDevice) {
-                    // petkitDevice not exists, create petkitDevice and accessory
-                    let accessory = new this.api.platformAccessory(validDevice.name, uuid, validDevice.name);
-                    if (!accessory) {
-                        this.log.error('initialize Petkit Feeder failed: could not create accessory');
-                        return;
-                    }
-
-                    petkitDevice = new PetkitFeederDevice();
-                    petkitDevice.accessory = accessory;
-                    petkitDevice.config = config;
-                } else if (!petkitDevice.accessory) {
-                    // accessory not exists, create accessory
-                    let accessory = new this.api.platformAccessory(validDevice.name, uuid, validDevice.name);
-                    if (!accessory) {
-                        this.log.error('initialize Petkit Feeder failed: could not create accessory');
-                        return;
-                    }
-                    petkitDevice.accessory = accessory;
-                    petkitDevice.config = config;
-                } else {
-                    // accessory exists
-                    petkitDevice.config = config;
-                }
-
-                this.log.debug('request initial device status from Petkit server.');
-                this.http_getDeviceDetailStatus(petkitDevice, deviceDetailInfo => {
-                    if (deviceDetailInfo) {
-                        petkitDevice.config.set('sn', deviceDetailInfo.sn);
-                        petkitDevice.config.set('firmware', deviceDetailInfo.firmware);
-                        petkitDevice.config.assign('headers', {key: 'X-TimezoneId', value: deviceDetailInfo.locale})
-    
-                        if (this.setupAccessory(petkitDevice)) {
-                            // all service setup success, now update accessory
-                            if (!this.accessories.get(uuid)) {
-                                this.api.registerPlatformAccessories(pluginName, platformName, [petkitDevice.accessory]);
-                            }
-                            this.accessories.set(uuid, petkitDevice.accessory);
-    
-                            this.log.info(format('initialize Petkit Feeder device({}) success.', config.get('name')));
-    
-                            // polling
-                            this.setupPolling(petkitDevice);
-                        } else {
-                            this.log.error(format('initialize Petkit Feeder device({}) failed.', config.get('name')));
-                        }
-                    } else {
-                        this.log.warn(format('bypass initialize Petkit Feeder device({}).', config.get('name')));
-                    }
-                });
+                this.setupDevice(config, validDevice);
             });
+    }
+
+    setupDevice(config, validDevice) {
+        config.set('deviceId', validDevice.id);
+        config.set('name', validDevice.name);
+        config.set('model', validDevice.type);
+
+        // uuid must be generated from a unique but not changing data source,
+        // name should not be used in the most cases. But works in this specific example.
+        const uuid = UUIDGen.generate(validDevice.name);
+        let petkitDevice = this.accessories.get(uuid);
+        if (!petkitDevice) {
+            // petkitDevice not exists, create petkitDevice and accessory
+            let accessory = new this.api.platformAccessory(validDevice.name, uuid, validDevice.name);
+            if (!accessory) {
+                this.log.error('initialize Petkit Feeder failed: could not create accessory');
+                return;
+            }
+
+            petkitDevice = new PetkitFeederDevice();
+            petkitDevice.accessory = accessory;
+            petkitDevice.config = config;
+        } else if (!petkitDevice.accessory) {
+            // accessory not exists, create accessory
+            let accessory = new this.api.platformAccessory(validDevice.name, uuid, validDevice.name);
+            if (!accessory) {
+                this.log.error('initialize Petkit Feeder failed: could not create accessory');
+                return;
+            }
+            petkitDevice.accessory = accessory;
+            petkitDevice.config = config;
+        } else {
+            // accessory exists
+            petkitDevice.config = config;
+        }
+
+        this.log.debug('request initial device status from Petkit server.');
+        this.http_getDeviceDetailStatus(petkitDevice, deviceDetailInfo => {
+            if (deviceDetailInfo) {
+                petkitDevice.config.set('sn', deviceDetailInfo.sn);
+                petkitDevice.config.set('firmware', deviceDetailInfo.firmware);
+                petkitDevice.config.assign('headers', {key: 'X-TimezoneId', value: deviceDetailInfo.locale})
+
+                if (this.setupAccessory(petkitDevice)) {
+                    // all service setup success, now update accessory
+                    if (!this.accessories.get(uuid)) {
+                        this.api.registerPlatformAccessories(pluginName, platformName, [petkitDevice.accessory]);
+                    }
+                    this.accessories.set(uuid, petkitDevice.accessory);
+
+                    this.log.info(format('initialize Petkit Feeder device({}) success.', config.get('name')));
+
+                    // polling
+                    this.setupPolling(petkitDevice);
+                } else {
+                    this.log.error(format('initialize Petkit Feeder device({}) failed.', config.get('name')));
+                }
+            } else {
+                this.log.warn(format('bypass initialize Petkit Feeder device({}).', config.get('name')));
+            }
+        });
     }
 
     praseGetOwnedDevice(jsonObj) {
@@ -925,9 +943,23 @@ class petkit_feeder_plugin {
 
     async http_getDeviceInfo(petkitDevice) {
         const deviceId = petkitDevice.config.get('deviceId');
+        const model = petkitDevice.config.get('model');
         const url_template = petkitDevice.config.get('urls').deviceDetailInfo;
+        
+        // D4 uses POST body instead of URL query string
+        if (model === 'D4') {
+            const options = Object.assign({}, globalVariables.default_http_options, {
+                url: url_template,
+                method: 'POST',
+                headers: petkitDevice.config.get('headers'),
+                data: `id=${deviceId}`,
+                responseType: 'json'
+            });
+            return await this.http_request(options);
+        }
+        
         const url = format(url_template, deviceId);
-        const options = Object.assign(globalVariables.default_http_options, {
+        const options = Object.assign({}, globalVariables.default_http_options, {
             url: url,
             headers: petkitDevice.config.get('headers'),
             responseType: 'json'
@@ -959,9 +991,23 @@ class petkit_feeder_plugin {
         //     }
         // }
         const deviceId = petkitDevice.config.get('deviceId');
+        const model = petkitDevice.config.get('model');
         const url_template = petkitDevice.config.get('urls').deviceState;
+        
+        // D4 uses POST body instead of URL query string
+        if (model === 'D4') {
+            const options = Object.assign({}, globalVariables.default_http_options, {
+                url: url_template,
+                method: 'POST',
+                headers: petkitDevice.config.get('headers'),
+                data: `id=${deviceId}`,
+                responseType: 'json'
+            });
+            return await this.http_request(options);
+        }
+        
         const url = format(url_template, deviceId);
-        const options = Object.assign(globalVariables.default_http_options, {
+        const options = Object.assign({}, globalVariables.default_http_options, {
             url: url,
             headers: petkitDevice.config.get('headers'),
             responseType: 'json'
@@ -973,9 +1019,23 @@ class petkit_feeder_plugin {
     async http_saveDailyFeed(petkitDevice, amount, time) {
         const date = getDataString();
         const deviceId = petkitDevice.config.get('deviceId');
+        const model = petkitDevice.config.get('model');
         const url_template = petkitDevice.config.get('urls').saveDailyFeed;
+        
+        // D4 uses POST body instead of URL query string
+        if (model === 'D4') {
+            const options = Object.assign({}, globalVariables.default_http_options, {
+                url: url_template,
+                method: 'POST',
+                headers: petkitDevice.config.get('headers'),
+                data: `deviceId=${deviceId}&day=${date}&time=${time}&amount=${amount * 5}`,
+                responseType: 'json'
+            });
+            return await this.http_request(options);
+        }
+        
         const url = format(url_template, deviceId, date, time, amount * 5);
-        const options = Object.assign(globalVariables.default_http_options, {
+        const options = Object.assign({}, globalVariables.default_http_options, {
             url: url,
             headers: petkitDevice.config.get('headers'),
             responseType: 'json'
