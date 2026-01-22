@@ -948,10 +948,14 @@ class petkit_feeder_plugin {
         
         // D4 uses POST body instead of URL query string
         if (model === 'D4') {
+            const headers = petkitDevice.config.get('headers');
+            this.log.debug('D4 http_getDeviceInfo - URL: ' + url_template);
+            this.log.debug('D4 http_getDeviceInfo - Headers: ' + JSON.stringify(headers));
+            this.log.debug('D4 http_getDeviceInfo - Data: id=' + deviceId);
             const options = Object.assign({}, globalVariables.default_http_options, {
                 url: url_template,
                 method: 'POST',
-                headers: petkitDevice.config.get('headers'),
+                headers: headers,
                 data: `id=${deviceId}`,
                 responseType: 'json'
             });
