@@ -726,7 +726,7 @@ class petkit_feeder_plugin {
     praseGetOwnedDevice(jsonObj) {
         if (!jsonObj) {
             this.log.error('praseGetOwnedDevice error: jsonObj is nothing.');
-            return false;
+            return [];
         }
         const jsonStr = JSON.stringify(jsonObj);
         this.log.debug(jsonStr);
@@ -734,22 +734,22 @@ class petkit_feeder_plugin {
         if (jsonObj.hasOwnProperty('error')) {
             this.log.error('server reply an error: ' + jsonStr);
             this.log.error('you may need to check your X-Session and other header configure');
-            return false;
+            return [];
         }
 
         if (!jsonObj.hasOwnProperty('result')) {
             this.log.error('JSON.parse error with:' + jsonStr);
-            return false;
+            return [];
         }
 
         if (!jsonObj.result.hasOwnProperty('devices')) {
             this.log.error('JSON.parse error with:' + jsonStr);
-            return false;
+            return [];
         }
 
         if (jsonObj.result.devices.length === 0) {
             this.log.error('seems you didn\'t owned a Petkit Feeder device.');
-            return false;
+            return [];
         }
 
         var valid_devices = [];
