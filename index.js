@@ -719,7 +719,7 @@ class petkit_feeder_plugin {
             if (deviceDetailInfo) {
                 petkitDevice.config.set('sn', deviceDetailInfo.sn);
                 petkitDevice.config.set('firmware', deviceDetailInfo.firmware);
-                petkitDevice.config.assign('headers', {key: 'X-TimezoneId', value: deviceDetailInfo.locale})
+                petkitDevice.config.assign('headers', {'X-TimezoneId': deviceDetailInfo.locale})
 
                 if (this.setupAccessory(petkitDevice)) {
                     // all service setup success, now update accessory
