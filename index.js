@@ -24,16 +24,17 @@ const globalVariables = Object.freeze({
         'lightMode' : 'settings.lightMode',
     },
     'default_headers': {
-        'X-Client': 'ios(14.0;iPhone12,3)',
+        'X-Client': 'ios(16.2;iPhone15,2)',
         'Accept': '*/*',
-        'X-Timezone': '0.0',
-        'Accept-Language': 'en-US;q=1, zh-Hans-US;q=0.9',
-        'Accept-Encoding': 'gzip, deflate',
-        'X-Api-Version': '7.18.1',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'PETKIT/7.18.1 (iPhone; iOS 14.0; Scale/3.00)',
-        'X-TimezoneId': 'Asia/Shanghai',
-        'X-Locale': 'en_US'
+        'X-Timezone': '8.0',
+        'Accept-Language': 'zh-CN,zh-Hans;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'X-Api-Version': '13.2.2',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        'User-Agent': 'PetKit/04001090001 CFNetwork/1402.0.8 Darwin/22.2.0',
+        'X-TimezoneId': 'Asia/Taipei',
+        'X-Locale': 'zh_CN',
+        'Connection': 'keep-alive'
     },
     'default_http_options': {
         'method': 'POST',
@@ -948,14 +949,10 @@ class petkit_feeder_plugin {
         
         // D4 uses POST body instead of URL query string
         if (model === 'D4') {
-            const headers = petkitDevice.config.get('headers');
-            this.log.debug('D4 http_getDeviceInfo - URL: ' + url_template);
-            this.log.debug('D4 http_getDeviceInfo - Headers: ' + JSON.stringify(headers));
-            this.log.debug('D4 http_getDeviceInfo - Data: id=' + deviceId);
             const options = Object.assign({}, globalVariables.default_http_options, {
                 url: url_template,
                 method: 'POST',
-                headers: headers,
+                headers: petkitDevice.config.get('headers'),
                 data: `id=${deviceId}`,
                 responseType: 'json'
             });
@@ -974,7 +971,21 @@ class petkit_feeder_plugin {
     async http_getDeviceDailyFeeds(petkitDevice) {
         const date = getDataString();
         const deviceId = petkitDevice.config.get('deviceId');
+        const model = petkitDevice.config.get('model');
         const url_template = petkitDevice.config.get('urls').dailyfeeds;
+        
+        // D4 uses POST body instead of URL query string
+        if (model === 'D4') {
+            const options = Object.assign({}, globalVariables.default_http_options, {
+                url: url_template,
+                method: 'POST',
+                headers: petkitDevice.config.get('headers'),
+                data: `days=${date}&deviceId=${deviceId}`,
+                responseType: 'json'
+            });
+            return await this.http_request(options);
+        }
+        
         const url = format(url_template, deviceId, date);
         const options = Object.assign(globalVariables.default_http_options, {
             url: url,
@@ -1275,22 +1286,58 @@ class petkit_feeder_plugin {
                     this.log.info('this is battery mode , so .. delay to feed' + timeOfStatus)
                 } else {
                     this.log.info('this is not battery mode')
-                } 
-                this.http_saveDailyFeed(petkitDevice, petkitDevice.savedData.mealAmount, timeOfStatus)
-                    .then(data => {
-                        if (!data) {
-                            this.log.error('failed to commuciate with server.');
-                        } else {
-                            result = this.praseSaveDailyFeedResult(data);
-                            this.log.info('food drop result: ' + result ? 'success' : 'failed');
-                        }
-                    })
-                    .catch(error => {
-                        this.log.error('food drop failed: ' + error);
-                    })
-                    .then(() => {
-                        if (!fast_response) callback(null);
-                    });
+                }
+                
+                // D4: call device_detail before saveDailyFeed (like official app)
+                const model = petkitDevice.config.get('model');
+                // D4 minimum feed amount is 2 (10g), amounts below this will fail with result:4
+                let feedAmount = petkitDevice.savedData.mealAmount;
+                if (model === 'D4' && feedAmount < 2) {
+                    this.log.warn('D4 minimum feed amount is 2 (10g), adjusting from ' + feedAmount);
+                    feedAmount = 2;
+                }
+                const doFeed = () => {
+                    this.http_saveDailyFeed(petkitDevice, feedAmount, timeOfStatus)
+                        .then(data => {
+                            if (!data) {
+                                this.log.error('failed to commuciate with server.');
+                            } else {
+                                result = this.praseSaveDailyFeedResult(data);
+                                this.log.info('food drop result: ' + result ? 'success' : 'failed');
+                            }
+                        })
+                        .catch(error => {
+                            this.log.error('food drop failed: ' + error);
+                        })
+                        .then(() => {
+                            if (!fast_response) callback(null);
+                        });
+                };
+                
+                if (model === 'D4') {
+                    // D4 requires calling dailyFeeds before saveDailyFeed to actually dispense food
+                    this.log.debug('D4: calling dailyFeeds to wake up device');
+                    this.http_getDeviceDailyFeeds(petkitDevice)
+                        .then(() => {
+                            this.log.debug('D4: dailyFeeds success, now calling device_detail');
+                            return this.http_getDeviceInfo(petkitDevice);
+                        })
+                        .then(data => {
+                            if (data) {
+                                this.log.debug('D4: device_detail success, now calling saveDailyFeed');
+                                doFeed();
+                            } else {
+                                this.log.error('D4: device_detail returned no data, aborting feed');
+                                if (!fast_response) callback(null);
+                            }
+                        })
+                        .catch(error => {
+                            this.log.error('D4: pre-feed API calls failed: ' + error + ', aborting feed');
+                            if (!fast_response) callback(null);
+                        });
+                } else {
+                    doFeed();
+                }
             } else {
                 this.log.info('drop food with zero amount, pass.');
             }
