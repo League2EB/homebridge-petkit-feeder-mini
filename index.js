@@ -1032,7 +1032,7 @@ class petkit_feeder_plugin {
                 url: url_template,
                 method: 'POST',
                 headers: petkitDevice.config.get('headers'),
-                data: `deviceId=${deviceId}&days=${date}&time=${time}&amount=${amount * 5}`,
+                data: `amount=${amount * 5}&day=${date}&deviceId=${deviceId}&time=${time}`,
                 responseType: 'json'
             });
             return await this.http_request(options);
